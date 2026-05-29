@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "minecraft-overhauled-core",
+	"version": "${version}",
+	"name": "Minecraft Overhauled Core",
+	"description": "A total conversion Minecraft mod which is the core mod of the Minecraft Overhauled modpack",
+	"authors": [
+		"shaweel"
+	],
+	"contact": {
+		"homepage": "https://github.com/shaweel/minecraft-overhauled-core",
+		"sources": "https://github.com/shaweel/minecraft-overhauled-core"
+	},
+	"license": "GPLv3",
+	"icon": "assets/minecraft-overhauled-core/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"me.shaweel.minecraftoverhauledcore.MinecraftOverhauledCore"
+		],
+		"client": [
+			"me.shaweel.minecraftoverhauledcore.client.MinecraftOverhauledCoreClient"
+		],
+		"fabric-datagen": [
+			"me.shaweel.minecraftoverhauledcore.client.MinecraftOverhauledCoreDataGenerator"
+		]
+	},
+	"mixins": [
+		"minecraft-overhauled-core.mixins.json",
+		{
+			"config": "minecraft-overhauled-core.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~26.1.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
