@@ -3,7 +3,8 @@
 	"package": "me.shaweel.minecraftoverhauledcore.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
-		"ExampleClientMixin"
+		"RemoveUnusedHUDElements",
+		"HealthBar"
 	],
 	"injectors": {
 		"defaultRequire": 1

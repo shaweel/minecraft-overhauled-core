@@ -2,7 +2,12 @@
 	"required": true,
 	"package": "me.shaweel.minecraftoverhauledcore.mixin",
 	"compatibilityLevel": "JAVA_25",
-	"mixins": [],
+	"mixins": [
+		"RemoveHunger",
+		"RemoveDurability",
+		"RemoveXP",
+		"HealthHurt"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	},
