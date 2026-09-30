@@ -3,10 +3,17 @@
 	"package": "me.shaweel.minecraftoverhauledcore.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"RemoveHunger",
-		"RemoveDurability",
-		"RemoveXP",
-		"HealthHurt"
+		"damage.AttackIndicator",
+		"damage.FallDamage",
+		"damage.FireDamage",
+		"damage.DrownDamage",
+		"damage.HealthHurt",
+		"food.DisableHunger",
+		"food.EatWhenLow",
+		"food.HealEating",
+		"removals.RemoveDurability",
+		"removals.RemoveXP",
+		"gamerules.KeepInventory"
 	],
 	"injectors": {
 		"defaultRequire": 1

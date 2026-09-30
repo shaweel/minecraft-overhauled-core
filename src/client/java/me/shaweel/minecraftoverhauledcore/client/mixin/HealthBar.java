@@ -11,12 +11,12 @@ import me.shaweel.minecraftoverhauledcore.client.stats.ClientHealth;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.Hud;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.resources.Identifier;
 
-@Mixin(Gui.class)
+@Mixin(Hud.class)
 public class HealthBar {
 	@Inject(method = "extractRenderState", at = @At("TAIL"))
 	private void onRenderHud(GuiGraphicsExtractor graphics, DeltaTracker deltaTracker, CallbackInfo callbackInfo) {

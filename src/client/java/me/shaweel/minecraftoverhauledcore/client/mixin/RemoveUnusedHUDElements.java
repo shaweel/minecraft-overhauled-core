@@ -6,11 +6,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.At;
 
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.Hud;
 import net.minecraft.world.entity.player.Player;
 
-@Mixin(Gui.class)
+@Mixin(Hud.class)
 public class RemoveUnusedHUDElements {
 	@Inject(method = "extractHearts", at = @At("HEAD"), cancellable = true)
 	private void onExtractHearts(
@@ -47,7 +47,7 @@ public class RemoveUnusedHUDElements {
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	private void onNextContextualInfoState(CallbackInfoReturnable<Object> callbackInfoReturnable) {
 		try {
-			Object empty = Enum.valueOf((Class<Enum>) Class.forName("net.minecraft.client.gui.Gui$ContextualInfo"), "EMPTY");
+			Object empty = Enum.valueOf((Class<Enum>) Class.forName("net.minecraft.client.gui.Hud$ContextualInfo"), "EMPTY");
 			callbackInfoReturnable.setReturnValue(empty);
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);

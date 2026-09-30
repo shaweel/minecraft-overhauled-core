@@ -1,4 +1,4 @@
-package me.shaweel.minecraftoverhauledcore.mixin;
+package me.shaweel.minecraftoverhauledcore.mixin.removals;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Inject;

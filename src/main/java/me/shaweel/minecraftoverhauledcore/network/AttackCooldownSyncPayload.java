@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 
 public record AttackCooldownSyncPayload(int attackCooldown, float attackCooldownProgress) implements CustomPacketPayload {
-	public static final Type<AttackCooldownSyncPayload> TYPE = new Type<>(Identifier.fromNamespaceAndPath("minecraft_overhauled_core", "health_sync"));
+	public static final Type<AttackCooldownSyncPayload> TYPE = new Type<>(Identifier.fromNamespaceAndPath("minecraft_overhauled_core", "attack_cooldown_sync"));
 	
 	public static final StreamCodec<FriendlyByteBuf, AttackCooldownSyncPayload> CODEC = StreamCodec.composite(
 		ByteBufCodecs.INT, AttackCooldownSyncPayload::attackCooldown,

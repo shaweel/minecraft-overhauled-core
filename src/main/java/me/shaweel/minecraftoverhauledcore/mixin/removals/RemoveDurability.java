@@ -1,4 +1,4 @@
-package me.shaweel.minecraftoverhauledcore.mixin;
+package me.shaweel.minecraftoverhauledcore.mixin.removals;
 
 import java.util.function.Consumer;
 

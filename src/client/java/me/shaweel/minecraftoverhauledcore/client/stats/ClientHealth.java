@@ -13,7 +13,7 @@ public class ClientHealth {
 
 		ClientPlayNetworking.registerGlobalReceiver(HealthSyncPayload.TYPE, (payload, context) -> {
 			currentHealth = payload.currentHealth();
-			health = payload.health();
+			health = payload.maxHealth();
 		});
 	}
 }
