@@ -5,7 +5,9 @@ import java.util.UUID;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 
 public class Stat<T> {
 	public final String name;
@@ -19,19 +21,27 @@ public class Stat<T> {
 		this.baseMap = baseMap;
 		this.playerOnly = playerOnly;
 		this.optional = optional;
+
+		this.initialize();
 	}
 	
-	public static void initialize() {
+	private void discardIfInvalid(Entity entity) {
+		if (entity instanceof Mob mob && !this.baseMap.containsKey(mob.getType())) {
+			mob.discard();
+		}
+	}
+
+	private void putBaseValue(Entity entity) {
+		if (!this.statMap.containsKey(entity.getUUID())) {
+			this.statMap.put(entity.getUUID(), this.baseMap.get(entity.getType()));
+		}
+	}
+
+	public void initialize() {
 		ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
 			discardIfInvalid(entity);
-			putBaseHealthValues(entity);
-			sendHealthSyncPacketIfPlayer(entity, world);
-		});
-
-		ServerPlayerEvents.AFTER_RESPAWN.register((oldPlayer, newPlayer, _) -> {
-			UUID uuid = newPlayer.getUUID();
-
-			setCurrentHealth(uuid, getMaxHealth(uuid));
+			putBaseValue(entity);
+			sendPacketIfPlayer(entity, world);
 		});
 	}
 }
