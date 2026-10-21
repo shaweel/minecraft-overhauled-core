@@ -8,7 +8,7 @@ import net.fabricmc.api.ModInitializer;
 public class MinecraftOverhauledCore implements ModInitializer {
 	@Override
 	public void onInitialize() {
-		Server.initialize();
+		CurrentServer.initialize();
 		Health.initialize();
 		Damage.initialize();
 		AttackCooldown.initialize();

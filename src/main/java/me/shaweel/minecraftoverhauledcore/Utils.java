@@ -7,7 +7,7 @@ import net.minecraft.world.entity.Entity;
 
 public class Utils {
 	public static Entity getEntity(UUID uuid) {
-		for (ServerLevel level : Server.server.getAllLevels()) {
+		for (ServerLevel level : CurrentServer.get().getAllLevels()) {
 			Entity entity = level.getEntity(uuid);
 			if (entity != null) return entity;
 		}
@@ -15,7 +15,7 @@ public class Utils {
 	}
 
 	public static void killEntity(UUID uuid) {
-		for (ServerLevel level : Server.server.getAllLevels()) {
+		for (ServerLevel level : CurrentServer.get().getAllLevels()) {
 			Entity entity = level.getEntity(uuid);
 			if (entity != null) entity.kill(level);
 		}
